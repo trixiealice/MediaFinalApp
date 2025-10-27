@@ -198,13 +198,24 @@ public class TelaMediaFinal extends Application {
 
     private boolean validarEntrada(){
         if (tfNomeAluno.getText().isEmpty()){
-            mostrarMensagem(Alert.AlertType.ERROR, mensagem "Preencha o nome do aluno!");
+            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha o nome do aluno!");
             tfNomeAluno.requestFocus();
             return false;
 
         } else if (tfNota1.getText().isEmpty()) {
-            mostrarMensagem(Alert.AlertType.ERROR, mensagem);
+            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha a nota 1 do aluno!");
+            tfNota1.requestFocus();
+            return false;
 
+        } else if (tfNota2.getText().isEmpty()) {
+            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha a nota 2 do aluno");
+            tfNota2.requestFocus();
+            return false;
+
+        } else if (tfNota3.getText().isEmpty()) {
+            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha a nota 3 do aluno");
+            tfNota3.requestFocus();
+            return false;
         }
     }
 
