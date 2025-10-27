@@ -108,7 +108,7 @@ public class TelaMediaFinal extends Application {
         Scene scene = new Scene(root);
 
 
-        // colocar acena no stage
+        // colocar a cena no stage
         stage.setScene(scene);
         stage.show();
     }
