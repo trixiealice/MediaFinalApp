@@ -127,7 +127,7 @@ public class TelaMediaFinal extends Application {
                 String nomeAluno = tfNomeAluno.getText();
                 System.out.println("Nome do aluno: " + nomeAluno);
 
-                lblNomeResultados.setText("nomeAluno: " + nomeAluno);
+                lblNomeResultados.setText("nome do aluno: " + nomeAluno);
 
                 String nota1 = tfNota1.getText();
                 String nota2 = tfNota2.getText();
@@ -152,10 +152,10 @@ public class TelaMediaFinal extends Application {
             tfNota2.setText("");
             tfNota3.setText("");
             tfNota4.setText("");
-            lblNomeResultados.setText("");
-            lblMediaFinal.setText("");
-            lblResultados.setText("");
-            lblSituacao.setText("");
+            lblNomeResultados.setText("Nome do aluno: ");
+            lblMediaFinal.setText("Média Final: ");
+            //lblResultados.setText("");
+            lblSituacao.setText("Situação: ");
             painelResultado.setStyle("-fx-background-color: #add8e6");
             tfNomeAluno.requestFocus();
 
