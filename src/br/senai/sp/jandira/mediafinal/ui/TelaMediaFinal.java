@@ -122,23 +122,27 @@ public class TelaMediaFinal extends Application {
 
         // **** INTERCEPTAR CLIQUES NOS BOTÕES ****
         btCalcularMedia.setOnAction(e -> {
-            String nomeAluno = tfNomeAluno.getText();
-            System.out.println("Nome do aluno: " + nomeAluno);
-            String nomealuno = tfNota1.getText();
-            lblNomeResultados.setText("nomeAluno: " + nomealuno);
-            System.out.println(nomealuno);
 
-            String nota1 = tfNota1.getText();
-            String nota2 = tfNota2.getText();
-            String nota3 = tfNota3.getText();
-            String nota4 = tfNota4.getText();
+            if (validarEntrada()){
+                String nomeAluno = tfNomeAluno.getText();
+                System.out.println("Nome do aluno: " + nomeAluno);
 
-            double media = calcularMedia (nota1, nota2, nota3, nota4);
-            String mediaFormatada = String.format("%.2f", media);
-            lblMediaFinal.setText("Media final: " + mediaFormatada);
+                lblNomeResultados.setText("nomeAluno: " + nomeAluno);
 
-            String situacao = definirSituacao(media);
-            lblSituacao.setText("Situação: " + situacao);
+                String nota1 = tfNota1.getText();
+                String nota2 = tfNota2.getText();
+                String nota3 = tfNota3.getText();
+                String nota4 = tfNota4.getText();
+
+                double media = calcularMedia (nota1, nota2, nota3, nota4);
+                String mediaFormatada = String.format("%.2f", media);
+                lblMediaFinal.setText("Media final: " + mediaFormatada);
+
+                String situacao = definirSituacao(media);
+                lblSituacao.setText("Situação: " + situacao);
+            }
+
+
 
         });
 
@@ -198,25 +202,26 @@ public class TelaMediaFinal extends Application {
 
     private boolean validarEntrada(){
         if (tfNomeAluno.getText().isEmpty()){
-            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha o nome do aluno!");
+            mostrarMensagem(Alert.AlertType.ERROR, "Preencha o nome do aluno!");
             tfNomeAluno.requestFocus();
             return false;
 
         } else if (tfNota1.getText().isEmpty()) {
-            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha a nota 1 do aluno!");
+            mostrarMensagem(Alert.AlertType.ERROR, "Preencha a nota 1 do aluno!");
             tfNota1.requestFocus();
             return false;
 
         } else if (tfNota2.getText().isEmpty()) {
-            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha a nota 2 do aluno");
+            mostrarMensagem(Alert.AlertType.ERROR, "Preencha a nota 2 do aluno");
             tfNota2.requestFocus();
             return false;
 
         } else if (tfNota3.getText().isEmpty()) {
-            mostrarMensagem(Alert.AlertType.ERROR, mensagem: "Preencha a nota 3 do aluno");
+            mostrarMensagem(Alert.AlertType.ERROR, "Preencha a nota 3 do aluno");
             tfNota3.requestFocus();
             return false;
         }
+        return true;
     }
 
     private void mostrarMensagem(Alert.AlertType tipo, String mensagem){
